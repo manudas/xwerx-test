@@ -4,7 +4,7 @@ const initialState = {
 	isLoading: false
 }
 
-export default function requestDataEndPoint(state = initialState, action) {
+export default function LoadDataReducer(state = initialState, action) {
 	switch (action.type) {
 		case `${REQUEST_DATA}_PENDING`:
 			return Object.assign({}, state, {
