@@ -1,0 +1,58 @@
+{
+	"data": {
+	  "clients": [
+		{
+		  "name": "Francisco",
+		  "sales": [
+			1,
+			3,
+			5
+		  ]
+		},
+		{
+		  "name": "Manuel",
+		  "sales": [
+			2,
+			6
+		  ]
+		},
+		{
+		  "name": "Sean",
+		  "sales": [
+			4,
+			7
+		  ]
+		}
+	  ],
+	  "sales": [
+		{
+		  "id": 1,
+		  "amount": 22.5
+		},
+		{
+		  "id": 2,
+		  "amount": 44.7
+		},
+		{
+		  "id": 3,
+		  "amount": 11
+		},
+		{
+		  "id": 4,
+		  "amount": 19.9
+		},
+		{
+		  "id": 5,
+		  "amount": 3
+		},
+		{
+		  "id": 6,
+		  "amount": 43
+		},
+		{
+		  "id": 7,
+		  "amount": 12
+		}
+	  ]
+	}
+  }

@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk';
+
+import $ from 'jquery';
+import bootstrap from 'bootstrap';
+
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
+
+import ChartContainer from './views/component/ChartContainer';
+import DataRowContainer from './views/containers/DataRowContainer';
+
+import * as reducers from './reducers';
+
+const rootReducer = combineReducers(reducers);
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
+
+// const store = createStore(todoApp);
+const store = createStoreWithMiddleware(rootReducer);
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+	constructor(props){
+		super(props);
+		window.$ = $;
+	}
+
+	render() {
+		return (
+			<Provider store={store}>
+				<div className="App">
+					<ChartContainer />
+					<DataRowContainer />
+				</div>
+			</Provider>
+		);
+	}
 }
 
 export default App;
