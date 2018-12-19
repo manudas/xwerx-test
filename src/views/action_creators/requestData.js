@@ -9,13 +9,13 @@ export function requestData(){
             .then((res) => {
                 dispatch({
                     type: `${REQUEST_DATA}_SUCCEEDED`,
-                    payload: res.body
+                    payload: res
                 });
 			})
             .catch((err) => {
                 dispatch({
                     type: `${REQUEST_DATA}_FAILED`,
-                    payload: err.body
+                    payload: err
                 })
             });
     }

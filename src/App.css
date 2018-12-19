@@ -38,3 +38,7 @@
 .bg-gray {
   background-color: #4b545d;
 }
+
+.bg-white-transparent {
+  background-color: rgba(255,255,255,0.5);
+}

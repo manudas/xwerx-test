@@ -5,21 +5,27 @@ import { connect } from 'react-redux'
 import Client from '../component/Client';
 import Sale from '../component/Sale';
 import DataType from '../../utils/DataType'
+import {isEmpty} from '../../utils/Object'
 
 import DataRowContainerTopBar from './DataRowContainerTopBar';
+
+import * as DataTransformation from '../../controllers/DataTransformation';
 
 class DataRowContainer extends Component {
     
     render(){
-        let composedValue = ''; // it is better with arrays
-        if (this.props.data) {
-            this.props.data.array.forEach(element => {
-                if (this.props.DataType == DataType.clients) {
-                    composedValue += <Client data={element} />;
-                } else if (this.props.DataType == DataType.sales) {
-                    composedValue += <Sale data={element} />;
-                }
-            });
+        let composedValue = [];
+        if (!isEmpty(this.props.rawData)) {
+            if (this.props.DataType == DataType.clients) {
+                this.props.clients.forEach(client => {
+                    let clientComponent = <Client data={client} />;
+                    composedValue.push(clientComponent);
+                });
+            } else if (this.props.DataType == DataType.sales) {
+                this.props.sales.forEach(sale => {
+                    composedValue.push(<Sale data={sale} />);
+                });
+            }
         }
         return (
             <div className="container rounded bg-green mt-5 p-4">
@@ -34,7 +40,20 @@ class DataRowContainer extends Component {
 
 
 const mapStateToProps = function(state) { 
-    return {data : state.LoadDataReducer.data}
+    return {
+        rawData: state.SetDataReducer.data,
+        DataType: state.SetDataTypeReducer.dataType,
+        clients: 
+            state.SetDataReducer.data &&
+            state.SetDataReducer.data.clients
+            && state.SetDataReducer.data.sales ?
+                DataTransformation.linkClientWithSales(state.SetDataReducer.data).clients : null,
+        sales: 
+            state.SetDataReducer.data &&
+            state.SetDataReducer.data.clients
+            && state.SetDataReducer.data.sales ? 
+                DataTransformation.linkSalesWithClient(state.SetDataReducer.data).sales : null
+    }
 }
 
 export default connect(

@@ -1,7 +1,7 @@
 import { REQUEST_DATA } from '../views/action_creators/requestData'
 
 const initialState = {
-	isLoading: false
+	data: {}
 }
 
 export default function SetDataReducer(state = initialState, action) {
@@ -13,7 +13,7 @@ export default function SetDataReducer(state = initialState, action) {
 			break // no need of break after return, deleting nexts
 		case `${REQUEST_DATA}_SUCCEEDED`:
 			return Object.assign({}, state, {
-				data: JSON.parse(action.payload)
+				data: JSON.parse(action.payload).data
 			});
 		case `${REQUEST_DATA}_FAILED`:
 			return Object.assign({}, state, {

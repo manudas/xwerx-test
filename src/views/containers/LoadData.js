@@ -20,7 +20,7 @@ class LoadData extends Component {
 
     render() {
         if (this.props.isLoading && (this.props.dataType == 0)) {
-            alert("Please select a data type to be represented in OPTIONS drowpdown");
+            alert("Please select a data type to be represented in SELECTOR drowpdown");
         }
         return (
             <div 
@@ -28,7 +28,7 @@ class LoadData extends Component {
                 className={`col-${this.props.colSize} text-right`}>
                 <i className={`fa fa-flip-vertical ${this.props.classes ? this.props.classes : ''}`} >
                     <i className={`fa ${this.props.isLoading?'fa-spin':''}`}>
-                        <i class="fa fa-undo fa-flip-vertical"></i>
+                        <i className="fa fa-undo fa-flip-vertical"></i>
                     </i>
                 </i>
             </div>
