@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+
+import { connect } from 'react-redux'
+
 import {jsUcfirst} from '../../utils/strings';
 
 class OptionSelector extends Component {
@@ -7,9 +10,10 @@ class OptionSelector extends Component {
         if (this.props.options && this.props.options.length > 1){
             for (let i = 1; i < this.props.options.length; i++) {
                 accumulated_options.push(
-                    <a data-text={jsUcfirst(this.props.options[i])} className="dropdown-item" href="#" 
-                        onClick={this.changeSelector.bind(this)}>
-                            {jsUcfirst(this.props.options[i])}
+                    <a data-text={jsUcfirst(this.props.options[i].name)} className="dropdown-item" href="#" 
+                        onClick={this.changeSelector.bind(this, 
+                                    this.props.options[i].argument_action_creator ? this.props.options[i].argument_action_creator : null)}>
+                            {jsUcfirst(this.props.options[i].name)}
                     </a>
                 );
             }
@@ -28,11 +32,11 @@ class OptionSelector extends Component {
         );
     }
 
-    changeSelector(event) {
+    changeSelector(argument_action_creator, event) {
         let eventTarget = event.currentTarget;
 		let buttonText = eventTarget.attributes['data-text'].value;
-		if (buttonText.toLowerCase() == "save") {
-			alert("Pending. create action creator ?");
+		if (this.props.actionCreator) {
+			this.props.dispatch(this.props.actionCreator(argument_action_creator));
 		} else {
 			alert("This option is not yet available");
 		}
@@ -42,4 +46,8 @@ class OptionSelector extends Component {
     }
 }
 
-export default OptionSelector;
+
+export default connect(
+    null, // map state to props
+    null, // map dispatch to props
+  )(OptionSelector)

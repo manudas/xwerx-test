@@ -1,26 +1,22 @@
 import React, {Component} from 'react';
 
+import { connect } from 'react-redux'
+
 import Client from '../component/Client';
 import Sale from '../component/Sale';
+import DataType from '../../utils/DataType'
 
 import DataRowContainerTopBar from './DataRowContainerTopBar';
 
 class DataRowContainer extends Component {
-
-    static DataType = Object.freeze(
-        {
-            "clients":1, 
-            "sales":2
-        }
-    )
     
     render(){
         let composedValue = ''; // it is better with arrays
         if (this.props.data) {
             this.props.data.array.forEach(element => {
-                if (this.props.DataType == DataRowContainer.DataType.clients) {
+                if (this.props.DataType == DataType.clients) {
                     composedValue += <Client data={element} />;
-                } else if (this.props.DataType == DataRowContainer.DataType.sales) {
+                } else if (this.props.DataType == DataType.sales) {
                     composedValue += <Sale data={element} />;
                 }
             });
@@ -36,4 +32,12 @@ class DataRowContainer extends Component {
     }
 }
 
-export default DataRowContainer;
+
+const mapStateToProps = function(state) { 
+    return {data : state.LoadDataReducer.data}
+}
+
+export default connect(
+  mapStateToProps,
+  null,
+)(DataRowContainer)

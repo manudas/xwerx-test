@@ -9,13 +9,13 @@ export function requestData(){
             .then((res) => {
                 dispatch({
                     type: `${REQUEST_DATA}_SUCCEEDED`,
-                    // payload: res.body --> use in the reducer in charge of the list of sales / clients
+                    payload: res.body
                 });
 			})
             .catch((err) => {
                 dispatch({
                     type: `${REQUEST_DATA}_FAILED`,
-                    // payload: err.body --> use in the reducer in charge of the list of sales / clients
+                    payload: err.body
                 })
             });
     }

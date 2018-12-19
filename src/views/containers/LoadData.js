@@ -2,16 +2,26 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import {requestData} from '../action_creators/requestData'
+import { requestData } from '../action_creators/requestData'
+
+// import DataType from '../../utils/DataType'
 
 class LoadData extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {isLoading:false};
+        /*
+        this.state = {
+            isLoading:false,
+            dataType: 0 // nothing. definition in utils/DataType.js
+        };
+        */
     }
 
     render() {
+        if (this.props.isLoading && (this.props.dataType == 0)) {
+            alert("Please select a data type to be represented in OPTIONS drowpdown");
+        }
         return (
             <div 
                 onClick={this.props.makeRequest}
@@ -27,7 +37,10 @@ class LoadData extends Component {
 }
 
 const mapStateToProps = function(state) { 
-    return {isLoading : state.LoadDataReducer.isLoading}
+    return {
+        isLoading : state.LoadDataReducer.isLoading,
+        dataType: state.SetDataTypeReducer.dataType
+    }
 }
 // ▽ ▽ ▽ ▽ ▽ ▽ ▽ ▽ ▽ ▽
 const mapDispatchToProps = dispatch => bindActionCreators(

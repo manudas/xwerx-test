@@ -4,23 +4,21 @@ const initialState = {
 	isLoading: false
 }
 
-export default function LoadDataReducer(state = initialState, action) {
+export default function SetDataReducer(state = initialState, action) {
 	switch (action.type) {
 		case `${REQUEST_DATA}_PENDING`:
 			return Object.assign({}, state, {
-				isLoading: true
+				data: {}
 			});
-			break
+			break // no need of break after return, deleting nexts
 		case `${REQUEST_DATA}_SUCCEEDED`:
 			return Object.assign({}, state, {
-				isLoading: false
+				data: JSON.parse(action.payload)
 			});
-			break
 		case `${REQUEST_DATA}_FAILED`:
 			return Object.assign({}, state, {
-				isLoading: false
+				data: action.payload
 			});
-			break
 		default:
 			return state
 	}
