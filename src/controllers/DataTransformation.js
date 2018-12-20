@@ -62,8 +62,8 @@ export function veryImportantClients(decodedApiResponse){
 		});
 	}
 	return {
-		totalClients,
-		veryImportantClients
+		veryImportantClients,
+		rest: totalClients - veryImportantClients
 	};
 }
 
