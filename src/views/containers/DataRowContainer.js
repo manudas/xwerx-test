@@ -17,13 +17,13 @@ class DataRowContainer extends Component {
         let composedValue = [];
         if (!isEmpty(this.props.rawData)) {
             if (this.props.DataType == DataType.clients) {
-                this.props.clients.forEach(client => {
-                    let clientComponent = <Client data={client} />;
+                this.props.clients.forEach((client, i) => {
+                    let clientComponent = <Client data={client} key={i} />;
                     composedValue.push(clientComponent);
                 });
             } else if (this.props.DataType == DataType.sales) {
-                this.props.sales.forEach(sale => {
-                    composedValue.push(<Sale data={sale} />);
+                this.props.sales.forEach((sale, i) => {
+                    composedValue.push(<Sale data={sale} key={i} />);
                 });
             }
         }

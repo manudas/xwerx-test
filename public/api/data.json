@@ -7,21 +7,24 @@
 			1,
 			3,
 			5
-		  ]
+			],
+			"registration": 1545214941000
 		},
 		{
 		  "name": "Manuel",
 		  "sales": [
 			2,
 			6
-		  ]
+		  ],
+			"registration": 1525714941000
 		},
 		{
 		  "name": "Sean",
 		  "sales": [
 			4,
 			7
-		  ]
+		  ],
+			"registration": 1545174541000
 		}
 	  ],
 	  "sales": [
