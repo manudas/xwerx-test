@@ -30,31 +30,38 @@
 	  "sales": [
 		{
 		  "id": 1,
-		  "amount": 22.5
+		  "amount": 22.5,
+			"date": 1523224441000
 		},
 		{
 		  "id": 2,
-		  "amount": 44.7
+		  "amount": 44.7,
+			"date": 1523224351000
 		},
 		{
 		  "id": 3,
-		  "amount": 11
+		  "amount": 11,
+			"date": 1523224251000
 		},
 		{
 		  "id": 4,
-		  "amount": 19.9
+		  "amount": 19.9,
+			"date": 1523214221000
 		},
 		{
 		  "id": 5,
-		  "amount": 3
+		  "amount": 3,
+			"date": 1523714222000
 		},
 		{
 		  "id": 6,
-		  "amount": 43
+		  "amount": 43,
+			"date": 1525714222000
 		},
 		{
 		  "id": 7,
-		  "amount": 12
+			"amount": 12,
+			"date": 1525714241000
 		}
 	  ]
 	}

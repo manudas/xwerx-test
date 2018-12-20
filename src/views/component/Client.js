@@ -1,21 +1,8 @@
 import React, {Component} from 'react';
 
+import {getDateFromTimestamp} from '../../utils/DateTime';
+
 class Client extends Component {
-
-	static mlist = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-	/**
-	 * Pass a date object into this function
-	 */
-	month_name = function(dt){
-		return Client.mlist[dt.getMonth()];
-	};
-
-	getDateFromTimestamp(ts) {
-		const date = new Date(ts);
-		const mn = this.month_name(date);
-		const day = date.getDate();
-		return `${mn} ${day}`;
-	}
 
 	render(){
 		const sales = this.props.data && this.props.data.sales ? this.props.data.sales.length : 0;
@@ -33,7 +20,7 @@ class Client extends Component {
 					{sales} Sales
 				</div>
 				<div className="col-3 pr-2 d-flex justify-content-center flex-column">
-					{this.props.data.registration ? this.getDateFromTimestamp(this.props.data.registration) : ''}
+					{this.props.data.registration ? getDateFromTimestamp(this.props.data.registration) : ''}
 				</div>
 				<div className="col-3 d-flex justify-content-center flex-column">
 					<div className="row d-flex justify-content-center flex-row">

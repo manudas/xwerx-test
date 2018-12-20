@@ -10,7 +10,7 @@ class OptionSelector extends Component {
         if (this.props.options && this.props.options.length > 1){
             for (let i = 1; i < this.props.options.length; i++) {
                 accumulated_options.push(
-                    <a data-text={jsUcfirst(this.props.options[i].name)} className="dropdown-item" href="#" 
+                    <a key={i} data-text={jsUcfirst(this.props.options[i].name)} className="dropdown-item" href="#" 
                         onClick={this.changeSelector.bind(this, 
                                     this.props.options[i].argument_action_creator ? this.props.options[i].argument_action_creator : null)}>
                             {jsUcfirst(this.props.options[i].name)}
