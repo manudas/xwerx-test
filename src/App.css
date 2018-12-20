@@ -58,3 +58,22 @@
 @media (min-width: 1200px) {
     .adaptative_text { font-size: 1.0rem; }
 }
+
+.blue-text {
+    color: #67a3e7;
+}
+
+.big_adaptative_text { font-size: 1.2rem; }
+
+@media (min-width: 576px) {
+    .big_adaptative_text { font-size: 1.45rem; }
+}
+@media (min-width: 768px) {
+    .big_adaptative_text { font-size: 1.7rem; }
+}
+@media (min-width: 992px) {
+    .big_adaptative_text { font-size: 1.95rem; }
+}
+@media (min-width: 1200px) {
+    .big_adaptative_text { font-size: 2.2rem; }
+}

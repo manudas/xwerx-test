@@ -67,7 +67,7 @@ class DoughnutChart extends Component {
     }
     render () {
         return (
-            <div className="col col-12 col-sm-4">
+            <div className="col col-12 col-sm-4 mt-auto">
                 <div className="row">
                     <div className="col">
                         <canvas ref={'doughnutchart'} height={'150'} ></canvas>

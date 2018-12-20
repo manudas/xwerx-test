@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import DoughnutChart from '../containers/DoughnutChart';
-import LineChart from '../containers/LineChart';
+import BarChart from '../containers/BarChart';
 import ChangeCounter from '../containers/ChangeCounter';
 
 class ChartBar extends Component {
     render() {
         return (
-            <div className="row pb-3">
+            <div className="row pb-3  align-self-baseline d-flex ">
                 <DoughnutChart />
-                <LineChart />
+                <BarChart />
                 <ChangeCounter />
             </div>
         );

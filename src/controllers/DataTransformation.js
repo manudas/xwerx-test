@@ -85,3 +85,36 @@ export function salesFromVeryImportanClients(decodedApiResponse){
 	}
 	return salesFromVeryImportantClientArray;
 }
+
+export function getLastSales(decodedApiResponse, number = 12, offset = 0){
+	const result = [];
+	const aux_arr = {};
+	const sales = decodedApiResponse.sales;
+	if (sales){
+		const dateArr = [];
+		sales.forEach(sale => {
+			dateArr.push(parseInt(sale.date));
+		});
+		dateArr.sort();
+		const reversed_dateArr = dateArr.reverse();
+		for (let i = offset; i < number; i++){
+			let currentDate = reversed_dateArr[i];
+			if (currentDate) {
+				try {
+					sales.forEach(sale => {
+						let comparedDate = parseInt(sale.date);
+						if (comparedDate == currentDate){
+							result[i] = sale;
+						}
+					});
+					
+				} catch (e) {
+					if (e !== BreakException) throw e;
+				} 
+			} else {
+				result[i] = null;
+			}
+		}
+	}
+	return result;
+}
