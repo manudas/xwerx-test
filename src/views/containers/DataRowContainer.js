@@ -11,6 +11,11 @@ import DataRowContainerTopBar from './DataRowContainerTopBar';
 
 import * as DataTransformation from '../../controllers/DataTransformation';
 
+/**
+ * Component used to draw either the list of Clients
+ * or the list of Sales, depending on the
+ * DataType selected
+ */
 class DataRowContainer extends Component {
     
     render(){

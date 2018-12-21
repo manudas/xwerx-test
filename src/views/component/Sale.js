@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 
 import {getDateFromTimestamp} from '../../utils/DateTime';
 
+/**
+ * Component to render one sale data line
+ */
 class Sale extends Component {
 	render(){
 		return(

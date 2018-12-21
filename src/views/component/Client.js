@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 
 import {getDateFromTimestamp} from '../../utils/DateTime';
 
+/**
+ * Component to render one client data line
+ */
 class Client extends Component {
 
 	render(){

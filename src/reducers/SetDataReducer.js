@@ -4,6 +4,12 @@ const initialState = {
 	data: {}
 }
 
+/**
+ * Reducer used to process the received data from
+ * the api and to make it available for the needing components 
+ * @param {*} state 
+ * @param {*} action 
+ */
 export default function SetDataReducer(state = initialState, action) {
 	switch (action.type) {
 		case `${REQUEST_DATA}_PENDING`:

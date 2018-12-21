@@ -1,3 +1,8 @@
+/**
+ * Function used insert an array of sales into
+ * client object that belongs to
+ * @param {*} decodedApiResponse 
+ */
 export function linkClientWithSales(decodedApiResponse){
 	const apiClients = decodedApiResponse.clients;
 	const sales = decodedApiResponse.sales;
@@ -21,7 +26,11 @@ export function linkClientWithSales(decodedApiResponse){
 }
 
 let BreakException = {};
-
+/**
+ * Function used to insert a client name into the
+ * sale row that belongs to
+ * @param {*} decodedApiResponse 
+ */
 export function linkSalesWithClient(decodedApiResponse){
 	
 	const apiClients = decodedApiResponse.clients;
@@ -47,6 +56,11 @@ export function linkSalesWithClient(decodedApiResponse){
 	return decodedApiResponse;
 }
 
+/**
+ * Function used to calculate and return
+ * all those clientes with more of three sales
+ * @param {*} decodedApiResponse 
+ */
 export function veryImportantClients(decodedApiResponse){
 	const apiClients = decodedApiResponse.clients;
 	const totalClients = apiClients.length;
@@ -67,6 +81,12 @@ export function veryImportantClients(decodedApiResponse){
 	};
 }
 
+/**
+ * Function which calculates what sales belongs to
+ * those customer who are considered as very important
+ * customers
+ * @param {*} decodedApiResponse 
+ */
 export function salesFromVeryImportanClients(decodedApiResponse){
 	
 	const apiClients = decodedApiResponse.clients;
@@ -86,6 +106,13 @@ export function salesFromVeryImportanClients(decodedApiResponse){
 	return salesFromVeryImportantClientArray;
 }
 
+/**
+ * Utility used to return the last {number} of sales
+ * from an start point of {offset}
+ * @param {*} decodedApiResponse 
+ * @param {*} number 
+ * @param {*} offset 
+ */
 export function getLastSales(decodedApiResponse, number = 12, offset = 0){
 	const result = [];
 	const aux_arr = {};

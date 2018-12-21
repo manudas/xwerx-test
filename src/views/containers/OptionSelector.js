@@ -4,6 +4,11 @@ import { connect } from 'react-redux'
 
 import {jsUcfirst} from '../../utils/strings';
 
+/**
+ * Component used to draw the drop{down/left/right} component
+ * in charge of calling diverse action creators. It is reused
+ * in three places within the application
+ */
 class OptionSelector extends Component {
     render () {
         let accumulated_options = [];

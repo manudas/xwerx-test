@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+/**
+ * Component to draw the "spinning" configuration gear
+ */
 class ConfigurationGear extends Component {
 
     constructor(props) {
@@ -25,10 +28,18 @@ class ConfigurationGear extends Component {
         );
     }
 
+    /**
+     * Starts the spinning
+     * @param {*} event 
+     */
     spinCog(event) {
         this.setState({isCogFocused : true});
     }
 
+    /**
+     * Stops the spinning
+     * @param {*} event 
+     */
     stopCog(event) {
         this.setState({isCogFocused : false});
     }

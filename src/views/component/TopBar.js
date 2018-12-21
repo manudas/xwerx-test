@@ -5,6 +5,10 @@ import ConfigurationGear from './ConfigurationGear';
 import setDataType from '../action_creators/setDataType';
 import DataType from '../../utils/DataType';
 
+/**
+ * Component used to render the top with the OPTIONS
+ * selector and the ConfigurationGear
+ */
 class TopBar extends Component {
 
     render() {
@@ -29,7 +33,7 @@ class TopBar extends Component {
                                 options={['SELECTOR', ...options]}
                                 actionCreator = {setDataType}
                                 classes="text-left" />
-                <OptionSelector />
+                
                 <ConfigurationGear colSize="6" classes="text-muted" />
             </div>
         );

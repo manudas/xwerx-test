@@ -3,6 +3,10 @@ import DoughnutChart from '../containers/DoughnutChart';
 import BarChart from '../containers/BarChart';
 import ChangeCounter from '../containers/ChangeCounter';
 
+/**
+ * Component to draw the horizontal bars with
+ * the three charts
+ */
 class ChartBar extends Component {
     render() {
         return (

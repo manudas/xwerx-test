@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import TopBar from './TopBar';
 import ChartBar from './ChartBar';
 
+/**
+ * Component to render the Top bar with the Options drowpdown
+ * and the bar with the chart graphs
+ */
 class ChartContainer extends Component {
     render() {
         return (

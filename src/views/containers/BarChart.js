@@ -4,7 +4,14 @@ import { connect } from 'react-redux'
 
 import {getLastSales} from '../../controllers/DataTransformation';
 
+/**
+ * Component used to render the list of the last 12 sales amounts
+ */
 class BarChartClass extends Component {
+
+    /**
+     * Executed once the component was mount
+     */
     componentDidMount () {
         let chartCanvas = this.refs.linechart;
 
@@ -30,6 +37,10 @@ class BarChartClass extends Component {
         });
         this.setState({chart: myChart});
     }
+
+    /**
+     * Executed once the component was updated
+     */
     componentDidUpdate () {
         let chart = this.state.chart;
         let data = null;
@@ -63,6 +74,10 @@ class BarChartClass extends Component {
         );
     }
 
+    /**
+     * Builds the necessary data set used
+     * to render the chart
+     */
     buildDataSet(){
         const dataSetData = [];
         if (this.props.last12sales && this.props.last12sales.length > 0) {

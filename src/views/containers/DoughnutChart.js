@@ -6,6 +6,12 @@ import DataType from '../../utils/DataType'
 
 import * as DataTransformation from '../../controllers/DataTransformation';
 
+
+/**
+ * Componet used to draw either the data with the very important clients
+ * or the sales from the most important clientes, depending on the
+ * DataType that was selected before
+ */
 class DoughnutChart extends Component {
     componentDidMount () {
         let chartCanvas = this.refs.doughnutchart;

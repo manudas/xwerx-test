@@ -3,16 +3,24 @@ import { connect } from 'react-redux'
 
 import {getLastSales} from '../../controllers/DataTransformation';
 
+/**
+ * Component used to render the amount difference between
+ * the last 12 sales and the previous 12 sales
+ */
 class ChangeCounter extends Component {
     render(){
         return (
-            <div className="col-12 col-sm-4 mt-auto">
-                <div className="row">
+            <div className="col-12 col-sm-4 mt-auto" >
+                <div className="row" style={{
+                                                height:'40px'
+                                            }}>
                     <div className={`col ${this.props.change > 0 ? 'blue-text' : 'text-danger' }`} >
                         {this.props.change > 0 ? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>}
                     </div>
                 </div>
-                <div className="row">                    
+                <div className="row" style={{
+                                                height:'90px'
+                                            }}>                    
                     <div className={`big_adaptative_text col ${this.props.change < 0 ? 'text-danger' : 'blue-text'}`}>
                         {this.props.change ? this.props.change : 0}
                     </div>

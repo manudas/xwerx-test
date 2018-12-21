@@ -4,8 +4,11 @@ import { bindActionCreators } from 'redux'
 
 import { requestData } from '../action_creators/requestData'
 
-// import DataType from '../../utils/DataType'
-
+/**
+ * Component used to draw the "undo" icon and to
+ * launch the action creator needed to perform a
+ * http request to get the needed data
+ */
 class LoadData extends Component {
 
     constructor(props) {
